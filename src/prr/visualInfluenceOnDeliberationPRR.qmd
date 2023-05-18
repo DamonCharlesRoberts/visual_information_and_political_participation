@@ -37,7 +37,9 @@ execute:
   echo: false
   warning: false
   message: false
-  cache: true
+  cache: false
+params:
+  replicate: true
 ---
 
 {{< pagebreak >}}
