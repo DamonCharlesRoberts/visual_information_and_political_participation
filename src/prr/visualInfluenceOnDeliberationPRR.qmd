@@ -22,7 +22,7 @@ bibliography: "../../../assets/references.bib"
 format:
   hikmah-pdf:
     # Spit out in drafts directory
-    latex-output-dir: "../../drafts/prr"
+    latex-output-dir: "../../out/prr"
     # Use biblatex-chicago
     biblatex-chicago: true
     biblio-style: authordate
@@ -46,21 +46,46 @@ params:
 
 # Introduction
 
-Do politically-relevant colors predict our propensity to engage in political conversations? Does this have downstream consequences for formal political participation and for affective polarization? The existing literature in political science demonstrates that social groups, and particularly partisanship, motivate vast amounts of political behavior. One primary way that this manifests is the degree to which we interact with out-partisans relative to co-partisans. Rooted in classic social identity theory, the argument is that we have these tendencies out of a motivation to defend our pre-existing beliefs [@kunda_1990_pb;@jost_et-al_2022_n]. Evidence of this occurring manifests in a number of political [see @iyengar_westwood_2015_ajps] and even non-political contexts [@nicholson_et-al_2016_pb]. 
+Do politically-relevant colors predict our propensity to engage in political conversations? Does this have downstream consequences for formal political participation and for affective polarization? Conversations about politics is often considered to be a central component of political behavior in American democracy [@huckfeldt_2007_ohpb]. Evidence suggests that political conversations encourage many different forms of participation in politics [@verba_et-al_1995_hup;@klofstad_2007_prq], increase one's levels of political knowledge [@mcclurg_2003_prq] and is even capable of buffering animosity toward out-partisans [@levendusky_stecula_2021_cup]. Though it has these benefits, the existing literature in political science demonstrates that social groups, and particularly partisanship, motivate vast amounts of political behavior as well. One primary way that this manifests is the degree to which we interact with out-partisans relative to co-partisans. Rooted in classic social identity theory, the argument is that we have these tendencies out of a motivation to defend our pre-existing beliefs [@kunda_1990_pb;@jost_et-al_2022_n]. 
 
-One critical way that this tendency to avoid views we disagree with manifests is through whom we choose to have conversations with. Political deliberation is often considered to be a central component of political behavior in American democracy [@huckfeldt_2007_ohpb]. Evidence suggests that political conversations encourage many different forms of participation in politics [@verba_et-al_1995_hup;@klofstad_2007_prq], increase one's levels of political knowledge [@mcclurg_2003_prq] and is even capable of buffering animosity toward out-partisans [@levendusky_stecula_2021_cup]. 
+Evidence of motivated reasoning  manifests in a number of political [see @iyengar_westwood_2015_ajps] and even non-political [@nicholson_et-al_2016_pb] contexts. First, many of our networks for whom we talk to regularly are constructed of close friends and family and we are often reluctant to harm those relationships through disagreement [@mutz_2002_apsr;@mutz_2006_cup]. Second, even outside of our family and close friends, our networks are quite politically homogenous [@huckfeldt_sprague_1987;@butters_hare_2022_pb]. Third, evidence suggests that even if we are offered information from other political perspectives, we do not try to integrate it with our prior beliefs [@kunda_1990_pb;@lodge_taber_2013_cup] and the benefits of any exposure to such information do not last very long [@levendusky_stecula_2021_cup] as a result.
 
-Despite its benefits, there are a number of limitations. First, many of our networks for whom we talk to regularly are constructed of close friends and family and we are often reluctant to harm those relationships through disagreement [@mutz_2002_apsr;@mutz_2006_cup]. Second, even outside of our family and close friends, our networks are quite politically homogenous [@huckfeldt_sprague_1987;@butters_hare_2022_pb]. Third, evidence suggests that even if we are offered information from other political perspectives, we do not try to integrate it with our prior beliefs [@kunda_1990_pb;@lodge_taber_2013_cup] and the benefits of any exposure to such information do not last very long [@levendusky_stecula_2021_cup] as a result.
+Though the literature is mixed on whether cross-partisan conversations are beneficial for formal participation and reducing affective polarization, much of the evidence for their drawbacks start from the position that we enter a conversation with motivated reasoning already active. While this offers leverage to researchers to determine whether we can overcome motivated reasoning, it muddies our ability to make claims about deliberation's effects on affective polarization and participation. In response, some have put in effort to examine the ways in which individuals enter political conversations without prior information about another's political viewpoints. @carlson_settle_2022_cup argue that we can use the clothing of others to make an informed guess about the partisanship of a potential discussion partner. For example, it would probably be reasonable to assume that someone wearing a Patagonia jacket would be a Democrat and someone wearing a Carhartt jacket would be Republican. Just these assumptions based on the appearance of another person can lead someone to avoid a potential political conversation with others [@carlson_settle_2022_cup]. This fits with a well-established literature in political psychology that suggests that there are cultural differences between partisans [@hetherington_weiler_2018_hmh] and a rich literature in social psychology demonstrating the role of social groups, more broadly, have visual cues that we cultivate for ourselves and detect in others [see @pietraszewski_et-al_2015_c].
 
-Though the effects of cross-partisan deliberation are suspect, we do not always enter conversations about politics knowing the partisanship of our discussion partners. In lab-based settings, such situations offer leverage for researchers to examine whether the mixed evidence is due to motivated reasoning confounding the effect. While this certainly may be the case, less-than-perfect information about an individual can be used to quickly make assumptions about another's political viewpoints and activate motivated reasoning anyhow. One such form of less-than-perfect information that is gleaned pre-consciously and is easy to collect is visual information about the physical characteristics of another. @carlson_settle_2022_cup argue that we can use the clothing of others to make an informed guess about the partisanship of a potential discussion partner. For example, it would probably be reasonable to assume that someone wearing a Patagonia jacket would be a Democrat and someone wearing a Carhart jacket would be Republican. Just these assumptions based on the appearance of another person can lead someone to avoid a potential political conversation with others [@carlson_settle_2022_cup].
+I argue that the visual information required to encourage such behavior need not necessarily be as complex as things like the branding of someone's clothes. Colors convey significant amounts of information by themselves. Visual information such as color is among the fastest types of information that humans process [see @ames_et-al_2012_ohsn]. Colors in particular are deeply embedded into a number of schemas that organize our previous experiences which enable the processing and reacting to new information [see @cimbalo_et-al_1978_jgp]. Colors not only have strong associations with our affective state [see @mehta_zhu_2009_s;@elliot_maier_2012_aesp], but they also convey significant amounts of information about social groups [@pietraszewski_et-al_2015_c].
 
-I argue that the visual information required to encourage such behavior need not necessarily be that complex. Colors convey significant amounts of information. Visual information such as color is among the fastest types of information that humans process [see @ames_et-al_2012_ohsn]. Colors in particular are deeply embedded into a number of schemas that organize our previous experiences which enable the processing and reacting to new information [see @cimbalo_et-al_1978_jgp]. Colors not only have strong associations with our affective state [see @mehta_zhu_2009_s;@elliot_maier_2012_aesp], but they also convey significant amounts of information about social groups [@pietraszewski_et-al_2015_c].
+As colors provide potent information about salient social groups, I argue that politically-relevant colors, red and blue, are important informational cues that individuals rely upon to evaluate others and their ideological positions when politics is salient to them. The implication of this argument is that when individuals make such connections, we can predict behavioral motivations and outcomes depending on one's valanced associations with those colors in a political context. The motivations to engage or avoid in political conversations generated from such simple visual information can have serious implications for political participation and polarization.
 
-As colors provide potent information about salient social groups, I argue that politically-relevant colors, red and blue, are important informational cues that individuals can rely upon to evaluate others and their ideological positions when politics is salient to them. The implication of this argument is that when individuals make such connections, we can predict behavioral motivations and outcomes depending on one's valanced associations with those colors in a political context. The motivations to engage or avoid in political conversations generated from such simple visual information can have serious implications for political participation and polarization.
+In the following sections I elaborate on the cognitive processes that lend themselves to such a mechanism. After detailing the existing literature on this, I outline a snap-judgment model of political information processing that demonstrates the implications for propensity to engage in a political conversation and to reduce political polarization. Following that, I explore empirical evidence of this theory by performing an experiment.
 
 # How colors convey membership to social groups
 
+
 # How the connection to social group membership motivates political behavior
+
+```{mermaid}
+%%{init: {'theme':'base', 'themeVariables':{'primaryColor':'#ffffff', 'primaryBorderColor': '#000000'}}}%%
+graph TD
+    A[Detection of politically-relevant visual information] --> B(Activation of retrieval mechanism)
+    B --> C[Memory and contiguous paths hot]
+    C --> D[Appraisal of hot autonomous nervous system]
+    D --> E1[Negative Valence]
+    D --> E2[Positive Valence]
+    E1 --> F1[Disengagement motivation]
+    E2 --> F2[Attention activated]
+    F1 --> |Neg. new information| G1[Encoded as negative]
+    F1 --> |Pos. new information| G2[Encoded as positive]
+    F2 --> |Neg. new information| G3[Encoded as negative]
+    F2 --> |Pos. new information| G4[Encoded as positive]
+    G1 --> H1[Strengthens negative path]
+    G2 --> H2[Weakens negative path]
+    G3 --> H3[Weakens positive path]
+    G4 --> H4[Strengthens positive path]
+    G2 --> |forgotten| H1
+    H2 --> |reinforced| G2
+    H3 --> |reinforced| G3
+    G3 --> |forgotten| H4
+```
 
 # Empirical evidence
 
@@ -71,16 +96,3 @@ As colors provide potent information about salient social groups, I argue that p
 # Results
 
 # Discussion
-
-
-For many folks, participating more in politics and buffering affective polarization share one requirement in common: talking to others [see @brady_et-al_1995;@levendusky_stecula_2021_cup]. While this sounds like a relatively simple fix for an era of American politics seeing more hyper-polarization [@iyengar_westwood_2015_ajps] and more efforts to disenfranchise large groups of voters [@grumbach_2022_oup], organic political deliberation can be relatively hard to come by for the folks that may benefit from it the most [see @mutz_2006_cup].
-
-The existing literature suggests that those generally averse to and excluded from politics or those averse to particular political viewpoints are much less likely to participate in deliberative politics. Political participation, in all of its forms often requires some material or opportunity cost [see @aldrich_1993;@brady_et-al_1995]. As participation is quite costly, those often ignored in politics are less likely to participate [@fraga_2018]. Further, the cost of potentially ruining a close relationships or experiencing the deeply uncomfortable feeling of disagreement in viewpoints often encourages fewer conversations with non-partisans [@mutz_2006_cup;@carlson_settle_2022_cup].
-
-The literature is clearer on how organic political deliberation is less likely for those averse to and excluded from politics. Children are often taught that those who are not a middle-class or wealthy white man are an "aberration" or are a "trailblazer" in politics [TIMES FOR KIDS PAPER]. Many state legislatures actively target these populations when writing laws that supress voter turnout from those who do not identify as white and male [@grumbach_2022_oup]. What remains less clear is how individuals identify potential discussions as being potentially containing varied political viewpoints that lead to disagreement.
-
-This project discusses one possible mechanism that explains how individuals make assumptions about the partisan affiliation of a potential discussion partner they have no prior information on. This project argues that politically-relevant colors -- such as red and blue -- can convey important information about the political viewpoints of others when one is making the fast choice to spark a conversation with someone they do not know. Cognitive schemas enable individuals to connect seemingly innocuous visual information about an individual to their political orientations. As a result of this snap-judgment, individuals predict whether there will be disagreement in a conversation and can choose whether to avoid or engage in the conversation. Furthermore, this project argues how this information inhibits the potential buffering effects of deliberation on polarization.
-
-# Deliberation's benefits if we can overcome its challenges
-
-While evidence suggests that cross-partisan conversations *can* occur due to our limited capacities to exclude out-partisans from our lives [@huckfeldt_et-al_2004], it is relatively common for individuals to avoid political discussions with those we disagree with [@mutz_2006_cup; see @huckfeldt_2007_ohpb;@huckfeldt_sprague_1987]. Furthermore, conversations about politics can generate an invite for those low in political efficacy and are relatively unlikely to participate in politics; which once invited, often spurs higher rates of participation [@brady_et-al_1995;@mcclurg_2003;@klofstad_2007].

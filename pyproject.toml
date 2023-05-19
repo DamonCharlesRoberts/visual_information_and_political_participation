@@ -8,6 +8,9 @@ packages = [{include = "visual_information_and_political_participation"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+rustworkx = "^0.12.1"
+pillow = "^9.5.0"
+pydot = "^1.4.2"
 
 
 [build-system]
