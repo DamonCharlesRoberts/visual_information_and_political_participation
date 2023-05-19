@@ -65,9 +65,19 @@ In the following sections I elaborate on the cognitive processes that lend thems
 
 {{< include ../../../assets/_theory.qmd >}}
 
-# Empirical evidence
+# Research design
 
-# Data
+I recruit students from a large university in the southwestern region of the United States by posting advertisements and through word of mouth. Though it is a convenience sample, I expect that common demographic differences between a student-based convenience sample and the general population have consequences for the effect of the treatment upon my measured outcomes [@krupnikov_et-al_2021_cup].[^convenience_sample]
+
+[^convenience_sample]: While color-blindness may be a factor influencing these effects and the rates of it are lower among a student sample, this is a different population of interest. I do not expect that racial and ethnic or gender differences would cause my theory to operate differently.
+
+The students who volunteer to participate in the study are emailed containing a link to a URL to the study. Students are informed that this is a "pre-screen for the study". In this "pre-screen", I ask participants about their demographics and a number of questions about their interest in politics, two feeling thermometers for Democrats and Republicans to be used to measure affective polarization, and their partisan identification. I purposely ask participants these questions *before* introducing the treatment as to make politics and partisan affiliations salient.
+
+After completing these questions, participants participate in the first trial of the treatment. They are shown an image of a college-aged person wearing a t-shirt. This is a plain t-shirt, however, the color of that shirt is randomly chosen to be either red, blue, or white. Below the image, I ask participants whether they "would be willing to come to campus to have a conversation about politics with this person." After answering "yes" or "no", I ask participants to report their feelings toward Republicans and Democrats with two feeling thermometer scales. They are then debriefed and told that researchers will be following up with them in the next couple of weeks. 
+
+One week later, participants will be contacted again via email with another link to a "follow-up to the pre-screening". This time, they will see the image again, however, there will be a "profile" for the person that lists their political viewpoints which are randomized to be either "Republican", "independent", or "Democrat". I explain below the image, above the profile, as being "more information that we've collected since they have completed the pre-screening for the study too." Below the profile, I ask participants again whether they would be willing to come to campus to have a conversation. I additionally ask them a third time about their feelings toward Republicans and Democrats through two feeling-thermometer scales.
+
+After completing this second round, I debrief participants and inform them that the "potential discussion partner" was fictional. After explaining to them the necessity for deception, I provide information about how they can be compensated for participating in the study.
 
 # Methods
 
