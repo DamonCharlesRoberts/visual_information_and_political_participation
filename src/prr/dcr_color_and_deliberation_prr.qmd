@@ -110,44 +110,70 @@ To be clear, @tbl-hypotheses outlines a set of testable hypotheses generated fro
 
 {{< include ../../../assets/_theory.qmd >}}
 
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Hypotheses   | Expectation                                                                                                                                                                                    |
-+==============+:==============================================================================================================================================================================================:+
-| $H_1$        | People notice the color of clothing a potential conversation partner is wearing                                                                                                                |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| $H_2$        | When primed to think about politics, people are less likely to want to have a conversation with someone wearing a blue shirt if they are a Republican and  a red shirt if they are a democrat. |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| $H_3$        | If one is feeling pressured to participate in a conversation but are still unable to find common ground, they are still likely to want to disengage from the conversation.                     |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| $H_4$        | If one is feeling pressured to participate in a conversation and are able to find common ground despite first impressions, they are likely to be more willing to engage in a conversation.     |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| $H_5$        | People that find common ground despite first impressions are likely to exhibit lower levels of affective polarization than they had prior.                                                     |
++--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Hypotheses   | Expectation                                                                                                                                                                                                                                                               |
++==============+:=========================================================================================================================================================================================================================================================================:+
+| $H_1$        | People notice the color of clothing a potential conversation partner is wearing                                                                                                                                                                                           |
++--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $H_2$        | When primed to think about politics, people are less likely to want to have a conversation with someone wearing a blue shirt if they are a Republican and  a red shirt if they are a democrat.                                                                            |
++--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $H_3$        | When learning more information about someone that fits with our initial impression, our motivation of engagement or disengagement is stronger than if the information were incongruent with our initial impressions.                                                      |
++--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $H_4$        | When learning more information about someone that does not fit with our initial impression, the new information can shift our motivations to have the conversation or to disengage. However, this difference is smaller than if both forms of information were congruent. |
++--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $H_5$        | People that find common ground despite first impressions are likely to exhibit lower levels of affective polarization than they had prior.                                                                                                                                |
 
 : Summary of hypotheses {#tbl-hypotheses}
 
+<!--
+  NOTE: ADD SOMETHING ABOUT ASYMMETRIC POLARIZATION
+-->
 
 
-# Research design
+# Study 1
 
-I recruit students from a large university in the southwestern region of the United States by posting advertisements and through word of mouth. Though it is a convenience sample, I expect that common demographic differences between a student-based convenience sample and the general population *do not* have consequences for the effect of the treatment upon my measured outcomes [@krupnikov_et-al_2021_cup].[^convenience_sample]
+## Study design
 
-[^convenience_sample]: While color-blindness may be a factor influencing these effects and the rates of it are lower among a student sample, this is a different population of interest. I do not expect that racial and ethnic, socio-economic, or gender differences alone would cause differences in my treatment's effect.
+Study 1 seeks to address $H_1$ and $H_2$. In study 1, I recruit participants from ***[YouGov/MTURK]***. First I ask participants a number of questions about their demographic background (i.e., age, gender identity, education, and income). I additionally present them with a battery to measure conflict avoidance and to measure the degree to which they are willing to spark up conversations with strangers as potential confounds. 
 
-The students who volunteer to participate in the study are emailed containing a link to a URL to the study. Students are informed that this is a "pre-screen for the study". In this "pre-screen", I ask participants about their demographics and a number of questions about their interest in politics, two feeling thermometers for Democrats and Republicans to be used to measure affective polarization, and their partisan identification. I purposely ask participants these questions *before* introducing the treatment as to make politics and partisan affiliations salient.
+After getting some background information on my participants, I randomly split the sample into two conditions. The first condition is a "political prime" condition and the second is a "no political prime" condition. For the participants in the political prime condition, I ask them a number of questions about their political attitudes. This includes questions about their partisan identification and their attention to politics. This is designed to make politics salient for them. Those assigned to the second condition, no political prime, participants are asked these questions after the main treatment, but not before. This is designed to test the scope conditions of the relevance of clothing color in conversation when politics has not been primed.
 
-After completing these questions, subjects participate in the first trial of the treatment. They are shown an image of a college-aged person wearing a t-shirt. This is a plain t-shirt, however, the color of that shirt is randomly chosen to be either red, blue, or white. Below the image, I ask participants whether they "would be willing to come to campus to have a conversation about politics with this person." This is designed to address $H_2$. After answering "yes" or "no", I ask participants to report their feelings toward Republicans and Democrats with two feeling thermometer scales. They are then asked "to make sure that you were paying attention, what color shirt was the person wearing?" This is meant to address $H_1$. They are then debriefed and told that researchers will be following up with them in the next couple of weeks. Their response to whether or not they are willing to have a conversation shoul
+In the main treatment of the study, participants are assigned to one of two conditions. In both conditions, participants are instructed "You will have a conversation with this person". In these instructions, I take care to not state that this is going to be a "political conversation" or a "conversation about politics". I see these instructions as substantively different as the latter phrasings prime politics. The goal is that the priming (or no priming) done before this treatment will be what is making politics salient or not.
 
-One week later, participants will be contacted again via email with another link to a "follow-up to the pre-screening". This time, they will see the image again, however, there will be a "profile" for the person that lists their partisan identification as either "Republican", "Independent", or "Democrat". Additionally, I randomize whether that person is supportive of universal basic income, abortion, and gun control. I explain below the image, above the profile, as being "more information that we've collected since they have completed the pre-screening for the study too." This will leave some participants with a situation whereby their original assumption about the person's partisanship may be incorrect and others it was right. Additionally, it also will lead to some circumstances where participants are in a situation where they may find common ground with the potential discussion partner despite differences in partisan identification. Below the profile, I ask participants again whether they would be willing to come to campus to have a conversation. This is designed to address $H_3$ and $H_4$. I additionally ask them a third time about their feelings toward Republicans and Democrats through two feeling-thermometer scales to address $H_5$.
+Below those instructions, participants are shown an image of a person with either a blue or a red shirt. The first hypothesis would suggest that there should be differences in how willing someone would be to have a conversation between the conditions if they were primed with politics. For those not primed with politics beforehand, we should expect that the color of the shirt should not matter and for there to not be any substantively different levels of willingness to have that conversation between the red shirt, blue shirt conditions; the color of the shirt is not particularly relevant information.
 
-After completing this second round, I debrief participants and inform them that the "potential discussion partner" was fictional. After explaining to them the necessity for deception, I provide information about how they can be compensated for participating in the study. I exclude participants from the study who do not complete both rounds -- they are informed of this beforehand.
+The second hypothesis would suggest that those given the political prime would be more willing to have a conversation with someone who is wearing the color affiliated with their partisanship (e.g., Democrats more willing to have conversations with a discussion partner with a blue shirt than a red shirt) and less so with those who is not. Those in the non-political priming conditions, we should expect that there would be no real substantive difference between conditions as politics is not primed and the color of the shirt should have no significant meaning to them.
 
-## NOTE
 
-Should I go with this 3x2x2 design or should I go with  a 3x2 design? So either red vs. white vs. blue shirt x pid matches vs. pid does not match x common ground on policy vs. no common ground on policy. OR red vs. white vs. blue shirt x pid matches vs. pid does not match?
+## Methods
 
-# Methods
+```{r}
+#| label: simulate-data
+#| eval: false
+int_samples <- 1000
+list_n <- c(100, 150, 200, 250)
 
-# Results
+lm_dem <- lm(willing ~ treatment + treatment * prime) # democrat subsample
+lm_rep <- lm(willing ~ treatment + treatment * prime) # republican subsample
+```
+
+## Results
+
+# Study 2
+
+## Study design
+
+The setup for Study 2 is largely the same. Like in Study 1, I ask participants a number of questions about their demographic background and ask them about conflict avoidance and willingness to have conversations with strangers. As well as Study 1, I randomly split the sample into two conditions. A political prime and a no political prime condition. The purpose of doing this is not necessarily to prime politics anymore but is done more so for counterbalancing so that I am not systematically introducing post-treatment bias nor am I strengthening the effects of the treatment through systematically priming politics. Like in Study 1, I instruct participants that they will be having a conversation with someone and will show them someone wearing either a red or a blue t-shirt.
+
+Study 2 is different in that below the image I now include that person's policy preferences. Below the image, there is a "profile" for this person that describes their political positions by listing their party identification, whether they are supportive of universal basic income, abortion, and gun control. What varies in the four conditions is first whether the person is wearing a blue or a red shirt. The second dimension that the conditions vary on is whether that profile of political attitudes match with the presumed partisanship affiliated with their shirt color. For example, a participant seeing a discussion partner with a red t-shirt that identifies as a Democrat, is supportive of UBI, is pro-choice, and is supportive of gun control would be considered an incongruent condition as opposed to the same discussion partner with the red t-shirt that identifies as a Republican that is not supportive of UBI, is pro-life, and is not supportive of gun control.
+
+I chose these particular policies for a number of reasons. The first reason being that these policies are hot-button issues. While some skeptics of my research design may be concerned with me activating strong valenced responses, I argue that these choices increase the external validity of my study in that it is realistic that most people have *some* opinion (support or do not support) on these issues. In addition to external validity, I would argue that these are the sorts of policies that my participants would have some opinion on and would be most concerned discussing with other people. As these are polarized issues, these are the sorts of policy issues that people are concerned about discussing with others. They are less concerned about talking politics when discussing something like a local zoning law that limits the number of unrelated people that can not live with each other (save for perhaps Boulder, Colorado).
+
+After seeing this profile, participants are asked whether they are willing to have a conversation with this person. I still should expect for $H_2$ to hold in that Democrats will be more willing to talk with those wearing blue shirts and Republicans will be more willing to talk to those in red shirts. However, I should expect for the degree to which this occurs will be limited based upon whether their stated partisan identification and policy preferences to be congruent. I suspect for those that have political attitudes that are incongruent with the respondents' will recieve less support than those that have congruent policy attitudes. However, I suspect that those wearing shirts that are incongruent but with congruent policy preferences will be less popular as a potential discussion partner than one with both a congruent shirt and policy preferences. The snap-judgment model suggests that we are capable of overwriting our initial impressions. However, we are limited in our ability to do so.
+
+## Methods
+
+## Results
 
 # Discussion
 
