@@ -125,6 +125,17 @@ So where does this leave us? Coming to some conclusion about someone based on th
   NOTE: ADD SOMETHING ABOUT ASYMMETRIC POLARIZATION
 -->
 
+```{r}
+#| label: setup
+setwd("./src/prr")
+# modularly load packages
+box::use(
+  ./R/sample[
+    study_simulator
+  ]
+  , data.table[...]
+)
+```
 
 # Study 1
 
@@ -140,20 +151,33 @@ Below those instructions, participants are shown an image of a person with eithe
 
 The second hypothesis would suggest that those given the political prime would be more willing to have a conversation with someone who is wearing the color affiliated with their partisanship (e.g., Democrats more willing to have conversations with a discussion partner with a blue shirt than a red shirt) and less so with those who is not. Those in the non-political priming conditions, we should expect that there would be no real substantive difference between conditions as politics is not primed and the color of the shirt should have no significant meaning to them.
 
+## Simulation
 
-## Methods
+Before collecting data on human respondents, I first perform a simulation to test sample size considerations and to examine the trade-offs with my choices in model specification.
+
+First, I use the `fabricatr` [@fabricatr] package to simulate a population data frame where I specifiy a hypothetical, but I hope reasonable, data generating process for each of the control variables, the treatments, and the dependent variables of interest. For details about these data generating processes, the code used to generate this population data is included in the supplimentary information. It is important to note that the treatments are generated as dichotomous variables where the probability of receiving the value of 0 or 1 is 50%, random.
+
+I want to examine my ability to correctly detect a non-zero effect, given uncertainty expressed in my fitted model's posterior distribution, at different sample sizes (100, 150, 200, 250). For each sample size, I take one-thousand samples.
 
 ```{r}
-#| label: simulate-data
-#| eval: false
-int_samples <- 1000
-list_n <- c(100, 150, 200, 250)
-
-lm_dem <- lm(willing ~ treatment + treatment * prime) # democrat subsample
-lm_rep <- lm(willing ~ treatment + treatment * prime) # republican subsample
+#| label: simulate
+# Define a list of different sample sizes
+list_sample_size <- c(100, 150, 200, 250)
+# Sample the data at different sample sizes
+list_simulated <- lapply(
+  list_sample_size
+  , function(x) {
+    df_sample <- study_simulator(
+      study = 1
+      , n = x
+      , n_samples = 1000
+      , seed = 121022
+    )
+  }
+)
 ```
 
-## Results
+To examine the design's performance for testing $H_1$, I fit a logistic regression using the `brms` package [@brms] on each of the simulated samples.
 
 # Study 2
 
