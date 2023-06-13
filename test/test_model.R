@@ -9,8 +9,7 @@
 
 # Setup
   #* Set working directory
-#setwd("../src/prr")
-setwd("./src/prr")
+setwd("../src/prr")
   #* Load relevant functions
 box::use(
   testthat[...]

@@ -136,6 +136,7 @@ box::use(
   , ./R/model[
     fit_sims
   ]
+  , ./R/plot[...]
   , data.table[...]
   , brms[
     make_stancode
@@ -150,6 +151,8 @@ box::use(
 )
 # List sample size
 list_sample_size <- c(100, 150, 200, 250)
+# Number of samples
+int_n_samples <- 100
 ```
 
 # Study 1
@@ -184,7 +187,7 @@ if (params$reproduce == true) {
       df_sample <- study_simulator(
         study = 1
         , n = x
-        , n_samples = 1000
+        , n_samples = int_n_samples
         , seed = 121022
       )
       # Return df_sample
@@ -288,7 +291,6 @@ if (params$reproduce == true) {
     "normal(0,1)"
     , class = "b"
   )
-
     #* Fit model at different sample sizes
   list_fitted_samples <- lapply(
     list_simulated
@@ -302,6 +304,14 @@ if (params$reproduce == true) {
       )
     }
   )
+    #* collapse into a single data.table object
+  names(list_fitted_samples) <- list_sample_size
+  df_fitted_samples_model_1 <- rbindlist(
+    list_fitted_samples
+    , idcol = "sample_size"
+  )[
+    , sample_size := factor(sample_size)
+  ]
   # Model 2
     #* Compile the stan model
   compiled_study_1_model_2 <- stan_model(
@@ -367,7 +377,40 @@ if (params$reproduce == true) {
 
     }
   )
+  # Save results
+    #* study 1, model 1
+  save(
+    df_fitted_samples_model_1
+    , file = "../../data/temp/prr/fitted_model_1.RData"
+  )
+    #* study 1, model 2
+  save(
+    df_fitted_samples_model_2
+    , file = "../../data/temp/prr/fitted_model_2.RData"
+  )
+    #* study 1, model 2 alternate
+  save(
+    df_fitted_samples_model_2_alt
+    , file = "../../data/temp/prr/fitted_model_2_alt.RData"
+  )
+} else {
+  load(
+    file = "../../data/temp/prr/fitted_model_1.RData"
+  )
+  load(
+    file = "../../data/temp/prr/fitted_model_2.RData"
+  )
+  load(
+    file = "../../data/temp/prr/fitted_model_2_alt.RData"
+  )
 }
+```
+
+```{r}
+#| label: fig-true-positive-study-1
+
+plot_study_1_model_1 <- true_positive_plot(data_frame = df_fitted_samples_model_1)
+plot_study_1_model_1[[1]]
 ```
 
 # Study 2
@@ -382,9 +425,35 @@ I chose these particular policies for a number of reasons. The first reason bein
 
 After seeing this profile, participants are asked whether they are willing to have a conversation with this person. I still should expect for $H_2$ to hold in that Democrats will be more willing to talk with those wearing blue shirts and Republicans will be more willing to talk to those in red shirts. However, I should expect for the degree to which this occurs will be limited based upon whether their stated partisan identification and policy preferences to be congruent. I suspect for those that have political attitudes that are incongruent with the respondents' will recieve less support than those that have congruent policy attitudes. However, I suspect that those wearing shirts that are incongruent but with congruent policy preferences will be less popular as a potential discussion partner than one with both a congruent shirt and policy preferences. The snap-judgment model suggests that we are capable of overwriting our initial impressions. However, we are limited in our ability to do so.
 
-## Methods
+## Simulation
 
-## Results
+```{r}
+if (params$reproduce = true) {
+  # sample the data at different sample sizes
+  list_simulated_study_2 <- lapply(
+    list_sample_size
+    , function(x) {
+      df_sample <- study_simulator(
+        study = 2
+        , n = x
+        , n_samples = 1000
+        , seed = 121022
+      )
+      # return df_sample
+      return(df_sample)
+    }
+  )
+  # store it in a rdata file
+  save(
+    list_simulated_study_2
+    , file = "../../data/temp/prr/simulated_samples_study_2.RData"
+  )
+} else{
+  load(
+    file = "../../data/temp/prr/simulated_samples.RData"
+  )
+}
+```
 
 # Discussion
 

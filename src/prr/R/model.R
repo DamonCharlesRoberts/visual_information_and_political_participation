@@ -52,7 +52,7 @@ fit_sim_model <- function( # nolint
   ]
     # calculate whether there was a discrepancy
   df_discrepancy <- df_ci[
-    , true_postive := data.table::fifelse( # nolint
+    , true_positive := data.table::fifelse( # nolint
         CI_low > 0 & CI_high > 0, 1, # nolint
         data.table::fifelse(
             CI_low < 0 & CI_high < 0, 1, 0
