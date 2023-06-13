@@ -26,12 +26,12 @@ define_break <- function(
     , probs = seq(
       0
       , 1
-      , 1/(cuts-1)
+      , 1 / (cuts - 1)
     )
   )
   # Take the cuts and put it into a list of buckets
   if (cuts == 5) {
-    list_quintile = c(
+    list_quintile <- c(
       -Inf
       , quintile[[1]]
       , quintile[[2]]
@@ -40,7 +40,7 @@ define_break <- function(
       , Inf
     )
   } else if (cuts == 7) {
-     list_quintile = c(
+     list_quintile <- c(
       -Inf
       , quintile[[1]]
       , quintile[[2]]
@@ -107,7 +107,7 @@ single_sample <- function(
   if (study == 1) {
     dgp <- fabricatr::fabricate(
       N = 100000 # The population size
-      , E = stats::rnorm(N, mean = 0, sd = 1) # the epsilon term
+      , E = stats::rnorm(N, mean = 0, sd = 1) # the epsilon term # nolint
       , age = base::round(
         stats::runif(
           N
@@ -121,7 +121,7 @@ single_sample <- function(
       ) # define the gender variable. Binary outcome
       , education = stats::rnorm(
         N
-        , mean = -0.01 * age + 0.1 * gender + 14 + E
+        , mean = -0.01 * age + 0.1 * gender + 14 + E # nolint
         , sd = 0.5
       ) # define the education variable. Normal distribution
       , income = stats::rnorm(
@@ -132,40 +132,43 @@ single_sample <- function(
       , conflict_raw = stats::rnorm(N, mean = 0.3 * gender + 2.5 + E)
       , conflict = fabricatr::draw_ordered(
         N
-        , x = conflict_raw
+        , x = conflict_raw # nolint
         , breaks = define_break(vector = conflict_raw, cuts = 5)
         , break_labels = list_likert_labels
       ) # define the conflict avoidance question. ordered variable
-      , party_id_raw = stats::rnorm(N, mean = 0.4 * age - 0.6 * gender + 0.5 * income + E)
+      , party_id_raw = stats::rnorm(N, mean = 0.4 * age - 0.6 * gender + 0.5 * income + E) # nolint
       , party_id = fabricatr::draw_ordered(
         x = stats::rnorm(
           N
-          , mean = party_id_raw
+          , mean = party_id_raw # nolint
         )
         , breaks = define_break(party_id_raw, cuts = 7)
         , break_labels = list_pid_labels
       ) # define the party_id variable. ordered variable.
-      , attention_raw = stats::rnorm(N, mean = 0.5 * age - 0.3 * gender + 0.1 * income + E)
+      , attention_raw = stats::rnorm(
+        N
+        , mean = 0.5 * age - 0.3 * gender + 0.1 * income + E
+      )
       , attention = fabricatr::draw_ordered(
-        x = attention_raw
+        x = attention_raw # nolint
         , breaks = define_break(vector = attention_raw, cuts = 5)
         , break_labels = list_likert_labels
       ) # define the attention variable. Ordered variable
       , prime = fabricatr::draw_binary(
         N
-        , prob = 1/2
+        , prob = 1 / 2
       ) # define prime treatment. Binary.
       , blue_shirt = fabricatr::draw_binary(
         N
-        , prob = 1/2
+        , prob = 1 / 2
       ) # defien the blue_shirt treatment. Binary.
       , notice = fabricatr::draw_binary(
         N
-        , prob = 1 * prime
+        , prob = 1 * prime # nolint
       )
-      , willing_raw = stats::rnorm(N, mean = 0.1 * prime + 0.1 * blue_shirt + 0.1 * as.numeric(party_id) + 0.5 * prime * blue_shirt * as.numeric(party_id) + E)
+      , willing_raw = stats::rnorm(N, mean = 0.1 * prime + 0.1 * blue_shirt + 0.1 * as.numeric(party_id) + 0.5 * prime * blue_shirt * as.numeric(party_id) + E) # nolint
       , willing = fabricatr::draw_ordered(
-        x = willing_raw
+        x = willing_raw # nolint
         , breaks = define_break(vector = willing_raw, cuts = 5)
         , break_labels = list_likert_labels
       )
@@ -177,7 +180,7 @@ single_sample <- function(
   } else if (study == 2) {
     dgp <- fabricatr::fabricate(
       N = 100000 # the population size
-      , E = stats::rnorm(N, mean = 0, sd = 1) # the epsilon term
+      , E = stats::rnorm(N, mean = 0, sd = 1) # the epsilon term # nolint
       , age = base::round(
         stats::runif(
           N
@@ -191,7 +194,7 @@ single_sample <- function(
       ) # define the gender variable. Binary outcome
       , education = stats::rnorm(
         N
-        , mean = -0.01 * age + 0.1 * gender + 14 + E
+        , mean = -0.01 * age + 0.1 * gender + 14 + E # nolint
       ) # define the education variable. Normal distribution
       , income = stats::rnorm(
         N
@@ -201,18 +204,18 @@ single_sample <- function(
       , conflict_raw = stats::rnorm(N, mean = 0.3 * gender + 2.5 + E)
       , conflict = fabricatr::draw_ordered(
         N
-        , x = conflict_raw
+        , x = conflict_raw # nolint
         , breaks = define_break(vector = conflict_raw, cuts = 5)
         , break_labels = list_likert_labels
       ) # define the conflict avoidance question. ordered variable
       , party_id_raw = stats::rnorm(
         N
-        , mean = 0.4 * age - 0.6 * gender + 0.5 * income + E
+        , mean = 0.4 * age - 0.6 * gender + 0.5 * income + E # nolint
       ) # define party_id latent variable. Continuous.
       , party_id = fabricatr::draw_ordered(
         x = stats::rnorm(
           N
-          , mean = party_id_raw
+          , mean = party_id_raw # nolint
         )
         , breaks = define_break(party_id_raw, cuts = 7)
         , break_labels = list_pid_labels
@@ -222,24 +225,24 @@ single_sample <- function(
         , mean = 0.5 * age - 0.3 * gender + 0.1 * income + E
       ) # define attention latent variable. Continuous.
       , attention = fabricatr::draw_ordered(
-        x = attention_raw
+        x = attention_raw # nolint
         , breaks = define_break(vector = attention_raw, cuts = 5)
         , break_labels = list_likert_labels
       ) # define the attention variable. Ordered variable
       , congruent = fabricatr::draw_binary(
         N
-        , prob = 1/2
+        , prob = 1 / 2
       ) # define congruency treatment. Binary.
       , blue_shirt = fabricatr::draw_binary(
         N
-        , prob = 1/2
+        , prob = 1 / 2
       ) # define the blue_shirt treatment. Binary.
       , willing_raw = stats::rnorm(
         N
-        , mean = 0.1 * congruent + 0.1 * blue_shirt + 0.1 * as.numeric(party_id) + 1 * congruent * blue_shirt * as.numeric(party_id) + E
+        , mean = 0.1 * congruent + 0.1 * blue_shirt + 0.1 * as.numeric(party_id) + 1 * congruent * blue_shirt * as.numeric(party_id) + E # nolint
       )
       , willing = fabricatr::draw_ordered(
-        x = willing_raw
+        x = willing_raw # nolint
         , breaks = define_break(vector = willing_raw, cuts = 5)
         , break_labels = list_likert_labels
       )
@@ -276,13 +279,13 @@ single_sample <- function(
 #' @examples
 #'
 #'
-study_simulator <- function(
+study_simulator <- function( # nolint
   study = 1 # study 1 or study 2
   , n = 100 # size of each sample
   , n_samples = 1 # number of samples
   , seed = 121022 # seed
 ) {
-  if (study == 1 | study == 2 & n > 0 & n_samples > 0) {
+  if (study == 1 || study == 2 && n > 0 && n_samples > 0) {
     # Simulate the dgp/population
     df_dgp <- single_sample(
       study = study

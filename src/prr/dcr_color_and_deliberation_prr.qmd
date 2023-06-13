@@ -133,8 +133,23 @@ box::use(
   ./R/sample[
     study_simulator
   ]
+  , ./R/model[
+    fit_sims
+  ]
   , data.table[...]
+  , brms[
+    make_stancode
+    , brmsformula
+    , set_prior
+    , bernoulli
+    , cumulative
+  ]
+  , rstan[
+    stan_model
+  ]
 )
+# List sample size
+list_sample_size <- c(100, 150, 200, 250)
 ```
 
 # Study 1
@@ -161,23 +176,199 @@ I want to examine my ability to correctly detect a non-zero effect, given uncert
 
 ```{r}
 #| label: simulate
-# Define a list of different sample sizes
-list_sample_size <- c(100, 150, 200, 250)
-# Sample the data at different sample sizes
-list_simulated <- lapply(
-  list_sample_size
-  , function(x) {
-    df_sample <- study_simulator(
-      study = 1
-      , n = x
-      , n_samples = 1000
-      , seed = 121022
-    )
-  }
-)
+if (params$reproduce == true) {
+  # sample the data at different sample sizes
+  list_simulated <- lapply(
+    list_sample_size
+    , function(x) {
+      df_sample <- study_simulator(
+        study = 1
+        , n = x
+        , n_samples = 1000
+        , seed = 121022
+      )
+      # Return df_sample
+      return(df_sample)
+    }
+  )
+  # store in a rdata file
+  save(
+    list_simulated
+    , file = "../../data/temp/prr/simulated_samples.RData"
+  )
+} else {
+  load(
+    file = "../../data/temp/prr/simulated_samples.RData"
+  )
+}
 ```
 
 To examine the design's performance for testing $H_1$, I fit a logistic regression using the `brms` package [@brms] on each of the simulated samples.
+
+```{r}
+#| label: make-stan-code
+if (params$reproduce == true) {
+  df_example <- list_simulated[[1]][
+    sample == 1,
+  ]
+  df_example_split_rep <- df_example[
+    party_id == "Strong Republican" | party_id == "Republican" | party_id == "Lean Republican"
+  ]
+  df_example_split_dem <- df_example[
+    party_id == "Strong Democrat" | party_id == "Democrat" | party_id == "Lean Democrat"
+  ]
+  # Model 1: Predict whether they notice
+  formula_study_1_model_1 <- brmsformula(
+    notice ~ prime
+  )
+  prior_study_1_model_1 <- set_prior(
+    "normal(0,1)"
+    , class = "b"
+  )
+  stancode_study_1_model_1 <- make_stancode(
+    formula = formula_study_1_model_1
+    , data = df_example
+    , family = bernoulli(link = "logit")
+    , prior = prior_study_1_model_1
+    , save_model = "./STAN/study_1_model_1.stan"
+  )
+
+  # Model 2: Predict willingness
+    #* Full interaction
+  formula_study_1_model_2 <- brmsformula(
+    willing ~ blue_shirt + prime + party_id + blue_shirt * prime * party_id
+  )
+  prior_study_1_model_2 <- set_prior(
+    "normal(0,1)"
+    , class = "b"
+  )
+  stancode_study_1_model_2 <- make_stancode(
+    formula = formula_study_1_model_2
+    , data = df_example
+    , family = cumulative(link = "logit")
+    , prior = prior_study_1_model_2
+    , save_model = "./STAN/study_1_model_2.stan"
+  )
+    #* Split sample
+  formula_study_1_model_2_alt <- brmsformula(
+    willing ~ blue_shirt + prime + blue_shirt * prime
+  )
+  prior_study_1_model_2_alt <- set_prior(
+    "normal(0, 1)"
+    , class = "b"
+  )
+  stancode_study_1_model_2_alt <- make_stancode(
+    formula = formula_study_1_model_2_alt
+    , data = df_example_split_rep
+    , data2 = df_example_split_dem
+    , family = cumulative(link = "logit")
+    , prior = prior_study_1_model_2_alt
+    , save_model = "./STAN/study_1_model_2_alt.stan"
+  )
+}
+```
+
+```{r}
+#| label: fit-simulated-models
+if (params$reproduce == true) {
+  # Model 1
+    #* Compile the stan model
+  compiled_study_1_model_1 <- stan_model(
+    file = "./STAN/study_1_model_1.stan"
+    , model_name = "study_1_model_1"
+  )
+    #* Define model formula
+  formula_study_1_model_1 <- brmsformula(
+    notice ~ prime
+  )
+    #* Define the family
+  family_study_1_model_1 <- bernoulli(link = "logit")
+    #* Define priors
+  prior_study_1_model_1 <- set_prior(
+    "normal(0,1)"
+    , class = "b"
+  )
+
+    #* Fit model at different sample sizes
+  list_fitted_samples <- lapply(
+    list_simulated
+    , function(x) {
+      fit_sims(
+        data_frame = x
+        , compiled_stan_model = compiled_study_1_model_1
+        , formula = formula_study_1_model_1
+        , family = family_study_1_model_1
+        , prior = prior_study_1_model_1
+      )
+    }
+  )
+  # Model 2
+    #* Compile the stan model
+  compiled_study_1_model_2 <- stan_model(
+    file = "./STAN/study_1_model_2.stan"
+    , model_name = "study_1_model_2"
+  )
+    #* Define model formula
+  formula_study_1_model_2 <- brmsformula(
+    willing ~ blue_shirt + prime + party_id + blue_shirt * prime * party_id
+  )
+    #* Define the family
+  family_study_1_model_2 <- cumulative(link = "logit")
+    #* Define priors
+  prior_study_1_model_2 <- set_prior(
+    "normal(0, 1)"
+    , class = "b"
+  )
+    #* Fit model at different sample sizes
+  list_fitted_samples_model_2 <- lapply(
+    list_simulated
+    , function(x) {
+      fit_sims(
+        data_frame = x
+        , compiled_stan_model = compiled_study_1_model_2,
+        , parameters = c("b[1]", "b[2]", "b[3]", "b[4]")
+        , formula = formula_study_1_model_2
+        , priors = prior_study_1_model_2
+        , family = family_study_1_model_2
+      )
+    }
+  )
+    #* alternative model
+      #** compile model
+  compiled_study_1_model_2_alt <- stan_model(
+    file = "./STAN/study_1_model_2_alt.stan"
+    , model_name = "study_1_model_2_alt"
+  )
+      #** formula
+  formula_study_1_model_2_alt <- brmsformula(
+    willing ~ blue_shirt + prime + blue_shirt * prime
+  )
+      #** clean data
+  list_sim_rep_data <- lapply(
+    list_simulated
+    , function(x) {
+      x[
+        party_id == "Strong Republican" | party_id == "Republican" | party_id == "Lean Republican"
+      ]
+    }
+  )
+  list_sim_dem_data <- lapply(
+    list_simulated
+    , function(x) {
+      x[
+        party_id == "Strong Democrat" | party_id == "Democrat" | party_id == "Lean Democrat"
+      ]
+    }
+  )
+      #** fit model
+  list_fitted_samples_model_2_alt <- lapply(
+    list_simulated
+    , function(x) {
+
+    }
+  )
+}
+```
 
 # Study 2
 
