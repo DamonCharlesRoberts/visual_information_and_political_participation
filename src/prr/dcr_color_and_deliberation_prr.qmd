@@ -392,6 +392,12 @@ if (params$reproduce == true) {
         )
     }
   )
+  names(list_fitted_samples_model_2_alt) <- list_sample_size
+  df_fitted_samples_model_2_alt <- rbindlist(
+    list_fitted_samples_model_2_alt
+    , idcol= "sample_size"
+  )
+
   # Save results
     #* study 1, model 1
   save(
@@ -434,6 +440,9 @@ plot_study_1_model_2[[3]]
 plot_study_1_model_2[[4]]
 
 plot_study_1_model_2_alt <- true_positive_plot(data_frame = df_fitted_samples_model_2_alt)
+plot_study_1_model_2_alt[[1]]
+plot_study_1_model_2_alt[[2]]
+plot_study_1_model_2_alt[[3]]
 ```
 
 # Study 2
