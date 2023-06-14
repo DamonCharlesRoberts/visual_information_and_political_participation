@@ -432,6 +432,8 @@ plot_study_1_model_2[[1]]
 plot_study_1_model_2[[2]]
 plot_study_1_model_2[[3]]
 plot_study_1_model_2[[4]]
+
+plot_study_1_model_2_alt <- true_positive_plot(data_frame = df_fitted_samples_model_2_alt)
 ```
 
 # Study 2
