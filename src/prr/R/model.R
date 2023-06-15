@@ -34,7 +34,7 @@ fit_sim_model <- function( # nolint
     compiled_stan_model
     , data = list_data
     , chains = 1
-    , iter = 1000
+    , iter = 100
     , refresh = 0
     , verbose = FALSE
   )
